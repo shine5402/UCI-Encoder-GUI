@@ -1,0 +1,42 @@
+object Form2: TForm2
+  Left = 448
+  Height = 294
+  Top = 174
+  Width = 560
+  Caption = '关于'
+  ClientHeight = 294
+  ClientWidth = 560
+  LCLVersion = '1.6.4.0'
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 10
+    Height = 274
+    Top = 10
+    Width = 540
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 10
+    BorderSpacing.Right = 10
+    BorderSpacing.Bottom = 10
+    Lines.Strings = (
+      'uciencgui是ucienc（UCI编译器）的一个简单GUI。'
+      ''
+      'UCI是一种基于H.264/HEVC intra帧压缩算法和数据流格式的静态图像封装格式.'
+      '而且不受图像宽高的一些限制,支持alpha透明通道等特性,'
+      '与JPEG,JPEG2000,HD-Photo等静态图像压缩算法相比具有更高的压缩效率.'
+      ''
+      '目前公开的命令行工具暂时只支持24/32位BMP与UCI格式的相互转换,'
+      '编码工具只支持x264/x265作为编码内核,'
+      '解码内核使用FFmpeg中的libavcodec解码器.'
+      ''
+      '命令行使用方法详见ucienc/ucidec无参数时输出的帮助信息.'
+    )
+    ReadOnly = True
+    TabOrder = 0
+  end
+end

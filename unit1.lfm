@@ -1,34 +1,101 @@
 object Form1: TForm1
-  Left = 456
-  Height = 348
-  Top = 162
+  Left = 461
+  Height = 387
+  Top = 130
   Width = 716
-  Caption = 'Form1'
-  ClientHeight = 348
+  AllowDropFiles = True
+  Caption = 'UCI Encoder GUI'
+  ClientHeight = 387
   ClientWidth = 716
+  OnClose = FormClose
   OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
   LCLVersion = '1.6.4.0'
-  object Edit1: TEdit
-    Left = 104
-    Height = 25
-    Top = 72
-    Width = 304
+  object ListBox1: TListBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Button1
+    Left = 15
+    Height = 337
+    Top = 10
+    Width = 686
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 15
+    BorderSpacing.Top = 10
+    BorderSpacing.Right = 15
+    BorderSpacing.Bottom = 5
+    ItemHeight = 0
+    OnClick = ListBox1Click
     TabOrder = 0
   end
   object Button1: TButton
-    Left = 408
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 626
     Height = 25
-    Top = 72
+    Top = 352
     Width = 75
-    Caption = 'Button1'
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 10
+    Caption = '运行'
+    OnClick = Button1Click
     TabOrder = 1
   end
-  object Label1: TLabel
-    Left = 104
-    Height = 17
-    Top = 48
-    Width = 85
-    Caption = 'UCI 编码器路径'
-    ParentColor = False
+  object Button2: TButton
+    AnchorSideLeft.Control = ListBox1
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 15
+    Height = 25
+    Top = 352
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 10
+    Caption = '清空'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Button3: TButton
+    AnchorSideTop.Control = Button1
+    AnchorSideRight.Control = Button1
+    Left = 541
+    Height = 25
+    Top = 352
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 10
+    Caption = '关于'
+    OnClick = Button3Click
+    TabOrder = 3
+  end
+  object x264radio: TRadioButton
+    AnchorSideTop.Control = Button1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = x265radio
+    Left = 428
+    Height = 21
+    Top = 354
+    Width = 49
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
+    Caption = 'x264'
+    Checked = True
+    TabOrder = 5
+    TabStop = True
+  end
+  object x265radio: TRadioButton
+    AnchorSideTop.Control = Button1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Button3
+    Left = 482
+    Height = 21
+    Top = 354
+    Width = 49
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 10
+    Caption = 'x265'
+    TabOrder = 4
   end
 end
