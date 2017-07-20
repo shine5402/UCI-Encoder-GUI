@@ -16,9 +16,16 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     ListBox1: TListBox;
     x264radio: TRadioButton;
     RadioButton2: TRadioButton;
+    x265radio: TRadioButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -35,7 +42,7 @@ type
 
 var
   Form1: TForm1;
-  output: string;
+  output,q: string;
   batch:Tstringlist;
 implementation
 uses unit2;
@@ -71,6 +78,16 @@ showmessage('没有文件。');
 exit();
 end;
   s:='';
+  if x264radio.Checked then q:='27'
+    else q:='43';
+  if Edit1.Text<>'' then begin
+  q:=Edit1.text;
+  if Edit2.Text<>'' then q:=q+'.'+Edit2.Text
+  end
+  else begin
+    if x264radio.Checked then q:='27'
+    else q:='43'
+  end;
   batch.Clear;
   batch.Add('@echo off');
   batch.Add('cd '+ExtractFilePath(Application.Exename));
@@ -86,11 +103,11 @@ end;
       end;
       batch.Add('echo 处理第'+inttostr(i+1)+'个文件，共'+inttostr(Listbox1.Items.Count)+'个');
       batch.Add('echo 文件路径为'+ListBox1.Items[i]);
-      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'"') else begin
+      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'" -q '+q) else begin
         s1:=ListBox1.Items[i];
         delete(s1,length(s1)-length(s)+1,length(s));
         batch.Add('imgdec.exe "'+ListBox1.Items[i]+'" "'+s1+'bmp"');
-        batch.Add('ucienc.exe "'+s1+'bmp"');
+        batch.Add('ucienc.exe "'+s1+'bmp" -q'+q);
         batch.Add('del "'+s1+'bmp"');
         batch.Add('echo 一个文件已完成！');
                   s:='';s1:='';
@@ -112,11 +129,11 @@ end else begin for i:= 0 to Listbox1.Items.Count-1 do begin
       end;
       batch.Add('echo 处理第'+inttostr(i+1)+'个文件，共'+inttostr(Listbox1.Items.Count)+'个');
       batch.Add('echo 文件路径为'+ListBox1.Items[i]);
-      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'" -hevc') else begin
+      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'" -hevc -q '+q) else begin
         s1:=ListBox1.Items[i];
         delete(s1,length(s1)-length(s)+1,length(s));
         batch.Add('imgdec.exe "'+ListBox1.Items[i]+'" "'+s1+'bmp"');
-        batch.Add('ucienc.exe "'+s1+'bmp" -hevc');
+        batch.Add('ucienc.exe "'+s1+'bmp" -hevc -q '+q);
         batch.Add('del "'+s1+'bmp"');
         batch.Add('echo 一个文件已完成！');
         s:='';s1:='';
@@ -131,7 +148,9 @@ s:='';s1:='';
 end;
   batch.SaveToFile('run-utf8.bat');
   ShellExecute(0,'open', 'cmd','/c iconv -f utf-8 -t gbk run-utf8.bat>run.bat',nil,5);
+  sleep(500);
   ShellExecute(0,'open', 'cmd','/k run.bat',nil,5);
+  ListBox1.Clear;
 end;
 procedure TForm1.Button2Click(Sender: TObject);
 begin
@@ -145,7 +164,7 @@ end;
 
 procedure TForm1.Button4Click(Sender: TObject);
 begin
-
+  ListBox1.Items.Delete(Listbox1.ItemIndex);
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
