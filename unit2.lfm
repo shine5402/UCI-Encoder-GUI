@@ -27,17 +27,15 @@ object Form2: TForm2
       'uciencgui是ucienc（UCI编译器）的一个简单GUI。'
       'uciencgui由shine5402编写。'
       ''
-      'ucienc由dwing编写。'
+      'UCI格式由dwing制定，ucienc由dwing编写。'
+      'UCI (Ultra Compact Image) 0.602 by dwing 2017-06-08'
       'UCI是一种基于H.264/HEVC intra帧压缩算法和数据流格式的静态图像封装格式.'
       '而且不受图像宽高的一些限制,支持alpha透明通道等特性,'
       '与JPEG,JPEG2000,HD-Photo等静态图像压缩算法相比具有更高的压缩效率.'
       ''
-      '目前公开的命令行工具暂时只支持24/32位BMP与UCI格式的相互转换,'
-      '编码工具只支持x264/x265作为编码内核,'
-      '解码内核使用FFmpeg中的libavcodec解码器.'
-      ''
-      '命令行使用方法详见ucienc/ucidec无参数时输出的帮助信息.'
+      '当前uciencgui版本：v1.1'
     )
+    OnChange = Memo1Change
     ReadOnly = True
     TabOrder = 0
   end

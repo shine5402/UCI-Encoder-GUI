@@ -13,6 +13,7 @@ type
 
   TForm2 = class(TForm)
     Memo1: TMemo;
+    procedure Memo1Change(Sender: TObject);
   private
     { private declarations }
   public
@@ -25,6 +26,13 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm2 }
+
+procedure TForm2.Memo1Change(Sender: TObject);
+begin
+
+end;
 
 end.
 

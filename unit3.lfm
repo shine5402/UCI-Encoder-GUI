@@ -1,0 +1,142 @@
+object Form3: TForm3
+  Left = 484
+  Height = 213
+  Top = 156
+  Width = 597
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = '高级设置'
+  ClientHeight = 213
+  ClientWidth = 597
+  Constraints.MinHeight = 213
+  Constraints.MinWidth = 597
+  LCLVersion = '1.6.4.0'
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 30
+    Height = 17
+    Top = 30
+    Width = 36
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 30
+    Caption = '注意：'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 66
+    Height = 17
+    Top = 30
+    Width = 492
+    Caption = '如果不知道自己在干什么，千万不要贸然改动下面的设置。这有可能导致程序无法正常运作。'
+    ParentColor = False
+  end
+  object Panel1: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 218
+    Height = 26
+    Top = 177
+    Width = 160
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 10
+    BevelOuter = bvNone
+    ClientHeight = 26
+    ClientWidth = 160
+    TabOrder = 0
+    object Button1: TButton
+      AnchorSideLeft.Control = Panel1
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      Left = 0
+      Height = 25
+      Top = 1
+      Width = 75
+      Caption = '保存'
+      Default = True
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 85
+      Height = 25
+      Top = 1
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = '取消'
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+  end
+  object Label3: TLabel
+    Left = 40
+    Height = 17
+    Top = 80
+    Width = 108
+    Caption = '-x 与 -X 参数的值：'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = Label3
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label3
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 148
+    Height = 25
+    Top = 76
+    Width = 419
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Right = 30
+    TabOrder = 1
+    TextHint = '留空即为不使用该参数。'
+  end
+  object Label4: TLabel
+    AnchorSideLeft.Control = Label3
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 40
+    Height = 17
+    Top = 106
+    Width = 91
+    BorderSpacing.Top = 5
+    Caption = '什么是 -x 参数？'
+    Font.Color = clBlue
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = Label4Click
+  end
+  object Label5: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideBottom.Control = Panel1
+    Left = 118
+    Height = 17
+    Top = 150
+    Width = 360
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 10
+    Caption = '此处设置暂时仅应用于当前会话，以后的版本中会支持保存到硬盘。'
+    ParentColor = False
+  end
+end

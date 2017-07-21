@@ -1,29 +1,31 @@
 object Form1: TForm1
-  Left = 418
+  Left = 373
   Height = 419
-  Top = 174
-  Width = 1014
+  Top = 170
+  Width = 914
   AllowDropFiles = True
   Caption = 'UCI Encoder GUI'
-  ClientHeight = 419
-  ClientWidth = 1014
+  ClientHeight = 399
+  ClientWidth = 914
+  Menu = MainMenu1
   OnClose = FormClose
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
   LCLVersion = '1.6.4.0'
   object ListBox1: TListBox
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
+    AnchorSideTop.Control = Label4
+    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Button1
     Left = 15
-    Height = 369
-    Top = 10
-    Width = 984
+    Height = 327
+    Top = 32
+    Width = 884
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 15
-    BorderSpacing.Top = 10
+    BorderSpacing.Top = 5
     BorderSpacing.Right = 15
     BorderSpacing.Bottom = 5
     ItemHeight = 0
@@ -35,11 +37,11 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 912
+    Left = 824
     Height = 25
-    Top = 384
+    Top = 364
     Width = 75
-    Anchors = [akBottom]
+    Anchors = [akRight, akBottom]
     BorderSpacing.Bottom = 10
     Caption = '运行'
     OnClick = Button1Click
@@ -51,7 +53,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 15
     Height = 25
-    Top = 384
+    Top = 364
     Width = 75
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
@@ -59,54 +61,41 @@ object Form1: TForm1
     OnClick = Button2Click
     TabOrder = 2
   end
-  object Button3: TButton
-    AnchorSideTop.Control = Button1
-    AnchorSideRight.Control = Button1
-    Left = 827
-    Height = 25
-    Top = 384
-    Width = 75
-    Anchors = [akTop, akRight]
-    BorderSpacing.Right = 10
-    Caption = '关于'
-    OnClick = Button3Click
-    TabOrder = 3
-  end
   object x264radio: TRadioButton
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = x265radio
-    Left = 714
+    Left = 711
     Height = 21
-    Top = 386
+    Top = 366
     Width = 49
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
     Caption = 'x264'
     Checked = True
-    TabOrder = 5
+    TabOrder = 4
     TabStop = True
   end
   object x265radio: TRadioButton
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
-    AnchorSideRight.Control = Button3
-    Left = 768
+    AnchorSideRight.Control = Button1
+    Left = 765
     Height = 21
-    Top = 386
+    Top = 366
     Width = 49
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 10
     Caption = 'x265'
-    TabOrder = 4
+    TabOrder = 3
   end
   object Label1: TLabel
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Edit1
-    Left = 382
+    Left = 352
     Height = 17
-    Top = 388
+    Top = 368
     Width = 70
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
@@ -117,25 +106,26 @@ object Form1: TForm1
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Label3
-    Left = 457
+    Left = 427
     Height = 25
-    Top = 384
+    Top = 364
     Width = 43
     Anchors = [akTop, akRight]
     NumbersOnly = True
-    TabOrder = 6
+    TabOrder = 5
+    TextHint = '27/43'
   end
   object Label2: TLabel
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = x264radio
-    Left = 553
+    Left = 523
     Height = 17
-    Top = 388
-    Width = 151
+    Top = 368
+    Width = 178
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 10
-    Caption = '（0.0-51.0，默认为27/43）'
+    Caption = '（0.0-51.0，数值越低质量越好）'
     ParentColor = False
   end
   object Button4: TButton
@@ -144,38 +134,63 @@ object Form1: TForm1
     AnchorSideTop.Control = Button1
     Left = 95
     Height = 25
-    Top = 384
+    Top = 364
     Width = 75
     BorderSpacing.Left = 5
     Caption = '删除选中项'
     OnClick = Button4Click
-    TabOrder = 7
+    TabOrder = 6
   end
   object Label3: TLabel
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Edit2
-    Left = 502
+    Left = 472
     Height = 17
-    Top = 388
+    Top = 368
     Width = 3
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 2
     BorderSpacing.Right = 2
     Caption = '.'
     ParentColor = False
+    OnClick = Label3Click
   end
   object Edit2: TEdit
     AnchorSideTop.Control = Button1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Label2
-    Left = 507
+    Left = 477
     Height = 25
-    Top = 384
+    Top = 364
     Width = 41
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
     NumbersOnly = True
-    TabOrder = 8
+    TabOrder = 7
+    TextHint = '0'
+  end
+  object Label4: TLabel
+    AnchorSideLeft.Control = ListBox1
+    AnchorSideTop.Control = Owner
+    Left = 15
+    Height = 17
+    Top = 10
+    Width = 204
+    BorderSpacing.Top = 10
+    Caption = '请拖拽文件到程序窗口中来添加文件：'
+    ParentColor = False
+  end
+  object MainMenu1: TMainMenu
+    left = 784
+    top = 8
+    object MenuItem1: TMenuItem
+      Caption = '高级设置'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '关于'
+      OnClick = MenuItem2Click
+    end
   end
 end
