@@ -1,0 +1,27 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Backups:
+*.bak
+# Lazarus:
+lib/
+backup/
+*.exe
+*.dbg
+*.dll
+#Languages
+*.mo
+*.bat
+UCIDec.java
+ucidec.lib
+TestUCI.c
+TestUCI.cs
+TestUCI.lua
+temp/
+readme.txt
+UCI.txt
+unit1.pas.bak
+unit.lfm.bak
+uciencgui.lpi.bak
+uciencgui.lps.bak
