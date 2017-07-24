@@ -20,10 +20,10 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
     Panel1: TPanel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure Label4Click(Sender: TObject);
   private
     { private declarations }
@@ -70,6 +70,14 @@ end;
 procedure TForm3.Button2Click(Sender: TObject);
 begin
   Form3.Close
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+if x_on then begin
+  edit1.Text:=x1;
+  button1.click;
+  end;
 end;
 
 end.

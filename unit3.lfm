@@ -1,14 +1,15 @@
 object Form3: TForm3
   Left = 337
-  Height = 213
+  Height = 165
   Top = 227
   Width = 597
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = '高级设置'
-  ClientHeight = 213
+  ClientHeight = 165
   ClientWidth = 597
-  Constraints.MinHeight = 213
+  Constraints.MinHeight = 165
   Constraints.MinWidth = 597
+  OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
   object Label1: TLabel
     AnchorSideLeft.Control = Owner
@@ -49,7 +50,7 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 218
     Height = 26
-    Top = 177
+    Top = 129
     Width = 160
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
@@ -125,18 +126,5 @@ object Form3: TForm3
     ParentColor = False
     ParentFont = False
     OnClick = Label4Click
-  end
-  object Label5: TLabel
-    AnchorSideLeft.Control = Owner
-    AnchorSideLeft.Side = asrCenter
-    AnchorSideBottom.Control = Panel1
-    Left = 118
-    Height = 17
-    Top = 150
-    Width = 360
-    Anchors = [akLeft, akBottom]
-    BorderSpacing.Bottom = 10
-    Caption = '此处设置暂时仅应用于当前会话，以后的版本中会支持保存到硬盘。'
-    ParentColor = False
   end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, Menus,shellapi;
+  EditBtn, Menus,shellapi,inifiles;
 
 type
 
@@ -51,6 +51,7 @@ var
   output,q,x: string;
   batch:Tstringlist;
   x_on:boolean;
+  settings:Tinifile;
 implementation
 uses unit2,Unit3;
 {$R *.lfm}
@@ -59,6 +60,9 @@ uses unit2,Unit3;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  settings:=Tinifile.create('./settings.ini');
+  form3.edit1.text:=settings.readstring('advanced','x','');
+  x_on:=settings.ReadBool('advanced','x_on',false);
  batch:=Tstringlist.Create;
  if not(fileexists('ucienc.exe'))then showmessage('没有在程序目录找到 UCI 编码器，除非你已经将 UCI 编码器所在路径加入环境变量，否则程序将无法运作。');
  if not(fileexists('imgdec.exe'))then showmessage('没有在程序目录找到 imgdec.exe，除非你已经将其所在路径加入环境变量，否则程序将无法运作。');
@@ -195,7 +199,9 @@ procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   batch.Free;
   deletefile('run.bat');
-  deletefile('run-utf8.bat')
+  deletefile('run-utf8.bat');
+    settings.WriteString('advanced','x',form3.edit1.Text);
+  settings.WriteBool('advanced','x_on',x_on);
 end;
 
 end.
