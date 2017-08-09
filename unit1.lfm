@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 592
-  Height = 419
-  Top = 188
+  Left = 520
+  Height = 331
+  Top = 300
   Width = 914
   AllowDropFiles = True
   Caption = 'UCI Encoder GUI'
-  ClientHeight = 399
+  ClientHeight = 311
   ClientWidth = 914
   Menu = MainMenu1
   OnClose = FormClose
@@ -20,7 +20,7 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Button1
     Left = 15
-    Height = 327
+    Height = 239
     Top = 32
     Width = 884
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -39,7 +39,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 824
     Height = 25
-    Top = 364
+    Top = 276
     Width = 75
     Anchors = [akRight, akBottom]
     BorderSpacing.Bottom = 10
@@ -54,7 +54,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 15
     Height = 25
-    Top = 364
+    Top = 276
     Width = 75
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
@@ -68,7 +68,7 @@ object Form1: TForm1
     AnchorSideRight.Control = x265radio
     Left = 711
     Height = 21
-    Top = 366
+    Top = 278
     Width = 49
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
@@ -83,7 +83,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Button1
     Left = 765
     Height = 21
-    Top = 366
+    Top = 278
     Width = 49
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 10
@@ -96,7 +96,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Edit1
     Left = 352
     Height = 17
-    Top = 368
+    Top = 280
     Width = 70
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
@@ -109,7 +109,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Label3
     Left = 427
     Height = 25
-    Top = 364
+    Top = 276
     Width = 43
     Anchors = [akTop, akRight]
     NumbersOnly = True
@@ -122,7 +122,7 @@ object Form1: TForm1
     AnchorSideRight.Control = x264radio
     Left = 523
     Height = 17
-    Top = 368
+    Top = 280
     Width = 178
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 10
@@ -135,7 +135,7 @@ object Form1: TForm1
     AnchorSideTop.Control = Button1
     Left = 95
     Height = 25
-    Top = 364
+    Top = 276
     Width = 75
     BorderSpacing.Left = 5
     Caption = '删除选中项'
@@ -148,7 +148,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Edit2
     Left = 472
     Height = 17
-    Top = 368
+    Top = 280
     Width = 3
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 2
@@ -163,7 +163,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Label2
     Left = 477
     Height = 25
-    Top = 364
+    Top = 276
     Width = 41
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 5

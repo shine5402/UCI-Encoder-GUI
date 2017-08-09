@@ -1,13 +1,13 @@
 object Form3: TForm3
-  Left = 337
-  Height = 165
-  Top = 227
+  Left = 426
+  Height = 174
+  Top = 239
   Width = 597
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = '高级设置'
-  ClientHeight = 165
+  ClientHeight = 174
   ClientWidth = 597
-  Constraints.MinHeight = 165
+  Constraints.MinHeight = 150
   Constraints.MinWidth = 597
   OnCreate = FormCreate
   LCLVersion = '1.6.4.0'
@@ -50,7 +50,7 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 218
     Height = 26
-    Top = 129
+    Top = 138
     Width = 160
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
@@ -87,11 +87,16 @@ object Form3: TForm3
     end
   end
   object Label3: TLabel
-    Left = 40
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label1
+    AnchorSideTop.Side = asrBottom
+    Left = 30
     Height = 17
-    Top = 80
-    Width = 108
-    Caption = '-x 与 -X 参数的值：'
+    Top = 62
+    Width = 179
+    BorderSpacing.Left = 30
+    BorderSpacing.Top = 15
+    Caption = '自定义调用的编译器命令行 (-x)：'
     ParentColor = False
   end
   object Edit1: TEdit
@@ -99,32 +104,69 @@ object Form3: TForm3
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Label3
     AnchorSideTop.Side = asrCenter
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 148
+    AnchorSideRight.Control = HelpButton1
+    Left = 209
     Height = 25
-    Top = 76
-    Width = 419
+    Top = 58
+    Width = 334
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Right = 30
     TabOrder = 1
     TextHint = '留空即为不使用该参数。'
   end
-  object Label4: TLabel
+  object Label5: TLabel
     AnchorSideLeft.Control = Label3
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrBottom
-    Cursor = crHandPoint
-    Left = 40
+    Left = 30
     Height = 17
-    Top = 106
-    Width = 91
-    BorderSpacing.Top = 5
-    Caption = '什么是 -x 参数？'
-    Font.Color = clBlue
-    Font.Style = [fsUnderline]
+    Top = 93
+    Width = 205
+    BorderSpacing.Top = 10
+    Caption = '自定义调用的编译器程序文件名 (-p)：'
     ParentColor = False
-    ParentFont = False
-    OnClick = Label4Click
+  end
+  object Edit2: TEdit
+    AnchorSideLeft.Control = Label5
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label5
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = HelpButton2
+    Left = 235
+    Height = 25
+    Top = 89
+    Width = 308
+    Anchors = [akTop, akLeft, akRight]
+    TabOrder = 2
+    TextHint = '留空即为不使用该参数。'
+  end
+  object HelpButton1: TButton
+    AnchorSideLeft.Control = Edit1
+    AnchorSideTop.Control = Edit1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 543
+    Height = 25
+    Top = 58
+    Width = 24
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 30
+    Caption = '?'
+    OnClick = HelpButton1Click
+    TabOrder = 3
+  end
+  object HelpButton2: TButton
+    AnchorSideLeft.Control = Edit1
+    AnchorSideTop.Control = Edit2
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 543
+    Height = 25
+    Top = 89
+    Width = 24
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 30
+    Caption = '?'
+    OnClick = HelpButton2Click
+    TabOrder = 4
   end
 end

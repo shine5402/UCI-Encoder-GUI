@@ -48,9 +48,9 @@ type
 
 var
   Form1: TForm1;
-  output,q,x,x1: string;
+  output,q,x,x1,hevc,p,p1: string;
   batch:Tstringlist;
-  x_on:boolean;
+  x_on,p_on:boolean;
   settings:Tinifile;
 implementation
 uses unit2,Unit3;
@@ -63,6 +63,8 @@ begin
   settings:=Tinifile.create('./settings.ini');
   x1:=settings.readstring('advanced','x','');
   x_on:=settings.ReadBool('advanced','x_on',false);
+  p1:=settings.readstring('advanced','p','');
+  p_on:=settings.ReadBool('advanced','p_on',false);
  batch:=Tstringlist.Create;
  if not(fileexists('ucienc.exe'))then showmessage('没有在程序目录找到 UCI 编码器，除非你已经将 UCI 编码器所在路径加入环境变量，否则程序将无法运作。');
  if not(fileexists('imgdec.exe'))then showmessage('没有在程序目录找到 imgdec.exe，除非你已经将其所在路径加入环境变量，否则程序将无法运作。');
@@ -106,6 +108,7 @@ showmessage('没有文件。');
 exit();
 end;
   s:='';
+//判断质量参数
   if x264radio.Checked then q:='27'
     else q:='43';
   if Edit1.Text<>'' then begin
@@ -116,13 +119,16 @@ end;
     if x264radio.Checked then q:='27'
     else q:='43'
   end;
+//判断结束
   batch.Clear;
   batch.Add('@echo off');
   batch.Add('cd '+ExtractFilePath(Application.Exename));
   batch.Add('title 开始运行……');
   batch.Add('color 3F');
   batch.Add('echo 本次共有'+inttostr(Listbox1.Items.Count)+'个文件要处理。');
-  if x264radio.Checked then begin for i:= 0 to Listbox1.Items.Count-1 do begin
+//批处理文件头部写入完毕
+if x265radio.Checked then hevc:=' -hevc' else hevc:='';//处理单选框（x264/x265）
+for i:= 0 to Listbox1.Items.Count-1 do begin
       for j:= length(Listbox1.Items[i]) downto 1 do if Listbox1.Items[i][j]<>'.'then s:=Listbox1.Items[i][j]+s else break;
       if not((s='bmp') or (s='BMP') or (s='tga') or (s='TGA') or (s='png') or (s='PNG') or (s='jpg') or (s='JPG') or (s='jpeg') or (s='JPEG') or (s='gif') or (s='GIF') or (s='tif') or (s='TIF') or (s='TIFF') or (s='tiff') or (s='pcx') or (s='PCX') or (s='jp2') or (s='JP2') or (s='jpc') or (s='JPC')) then begin
         batch.Add('echo 发现无法转换的文件 '+ListBox1.Items[i]);
@@ -131,49 +137,29 @@ end;
       end;
       batch.Add('echo 处理第'+inttostr(i+1)+'个文件，共'+inttostr(Listbox1.Items.Count)+'个');
       batch.Add('echo 文件路径为'+ListBox1.Items[i]);
-      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'" -q '+q+x) else begin
+      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+hevc+'" -q '+q+p+x) else begin
         s1:=ListBox1.Items[i];
         delete(s1,length(s1)-length(s)+1,length(s));
         batch.Add('imgdec.exe "'+ListBox1.Items[i]+'" "'+s1+'bmp"');
-        batch.Add('ucienc.exe "'+s1+'bmp" -q '+q+x);
+        batch.Add('ucienc.exe "'+s1+'bmp"'+hevc+' -q '+q+p+x);
         batch.Add('del "'+s1+'bmp"');
         batch.Add('echo 一个文件已完成！');
                   s:='';s1:='';
   end;
 
 end;
-    s:='';s1:='';
+    s:='';s1:='';hevc:='';
     batch.Add('echo 全部文件完成。请直接关闭窗口。');
     batch.Add('color 2F');
     batch.Add('title 完成！');
     batch.Add('pause>nul');
       batch.Add('exit');
-end else begin for i:= 0 to Listbox1.Items.Count-1 do begin
-      for j:= length(Listbox1.Items[i]) downto 1 do if Listbox1.Items[i][j]<>'.'then s:=Listbox1.Items[i][j]+s else break;
-      if not((s='bmp') or (s='BMP') or (s='tga') or (s='TGA') or (s='png') or (s='PNG') or (s='jpg') or (s='JPG') or (s='jpeg') or (s='JPEG') or (s='gif') or (s='GIF') or (s='tif') or (s='TIF') or (s='TIFF') or (s='tiff') or (s='pcx') or (s='PCX') or (s='jp2') or (s='JP2') or (s='jpc') or (s='JPC')) then begin
-        batch.Add('echo 发现无法转换的文件 '+ListBox1.Items[i]);
-                  s:='';s1:='';
-        continue;
-      end;
-      batch.Add('echo 处理第'+inttostr(i+1)+'个文件，共'+inttostr(Listbox1.Items.Count)+'个');
-      batch.Add('echo 文件路径为'+ListBox1.Items[i]);
-      if (s='bmp') or (s='BMP') then batch.Add('ucienc.exe "'+ListBox1.Items[i]+'" -hevc -q '+q+x) else begin
-        s1:=ListBox1.Items[i];
-        delete(s1,length(s1)-length(s)+1,length(s));
-        batch.Add('imgdec.exe "'+ListBox1.Items[i]+'" "'+s1+'bmp"');
-        batch.Add('ucienc.exe "'+s1+'bmp" -hevc -q '+q+x);
-        batch.Add('del "'+s1+'bmp"');
-        batch.Add('echo 一个文件已完成！');
-        s:='';s1:='';
-  end;
-end;
 s:='';s1:='';
   batch.Add('echo 全部文件完成。请直接关闭窗口。');
   batch.Add('color 2F');
   batch.Add('title 完成！');
   batch.Add('pause>nul');
   batch.Add('exit');
-end;
   batch.SaveToFile('run-utf8.bat');
   ShellExecute(0,'open', 'cmd','/c iconv -f utf-8 -t gbk run-utf8.bat>run.bat',nil,5);
   sleep(500);
@@ -202,6 +188,9 @@ begin
   deletefile('run-utf8.bat');
     settings.WriteString('advanced','x',form3.edit1.Text);
   settings.WriteBool('advanced','x_on',x_on);
+      settings.WriteString('advanced','p',form3.edit2.Text);
+  settings.WriteBool('advanced','p_on',p_on);
+  settings.free;
 end;
 
 end.
