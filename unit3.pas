@@ -119,7 +119,7 @@ begin
 'UCI (Ultra Compact Image) Encoder 0.602 [by dwing] 2017-06-08'+#10+
 'Options: -p <progname> set x264/5 program file name, default: x264/5.exe'+#10+
 '该参数可以令程序调用您定义的x264/5程序文件名。'+#10+
-'注意：您仍然需要根据您的编译器类型制定面板上的x264/x265选项，因为它们调用的参数是不同的。您也可以结合-x使用。');
+'注意：您仍然需要根据您的编译器类型选择面板上的x264/x265选项，因为它们调用的参数是不同的。您也可以结合-x使用。');
 end;
 
 end.

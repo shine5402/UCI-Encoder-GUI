@@ -1,11 +1,11 @@
 object Form3: TForm3
   Left = 426
-  Height = 174
-  Top = 239
+  Height = 165
+  Top = 248
   Width = 597
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = '高级设置'
-  ClientHeight = 174
+  ClientHeight = 165
   ClientWidth = 597
   Constraints.MinHeight = 150
   Constraints.MinWidth = 597
@@ -50,7 +50,7 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 218
     Height = 26
-    Top = 138
+    Top = 129
     Width = 160
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
