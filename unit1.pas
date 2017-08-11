@@ -52,6 +52,7 @@ var
   batch:Tstringlist;
   x_on,p_on:boolean;
   settings:Tinifile;
+  sleeptime:integer;
 implementation
 uses unit2,Unit3;
 {$R *.lfm}
@@ -65,6 +66,7 @@ begin
   x_on:=settings.ReadBool('advanced','x_on',false);
   p1:=settings.readstring('advanced','p','');
   p_on:=settings.ReadBool('advanced','p_on',false);
+  sleeptime:=settings.ReadInteger('advanced_gui','sleeptime',500);
  batch:=Tstringlist.Create;
  if not(fileexists('ucienc.exe'))then showmessage('没有在程序目录找到 UCI 编码器，除非你已经将 UCI 编码器所在路径加入环境变量，否则程序将无法运作。');
  if not(fileexists('imgdec.exe'))then showmessage('没有在程序目录找到 imgdec.exe，除非你已经将其所在路径加入环境变量，否则程序将无法运作。');
@@ -162,7 +164,7 @@ s:='';s1:='';
   batch.Add('exit');
   batch.SaveToFile('run-utf8.bat');
   ShellExecute(0,'open', 'cmd','/c iconv -f utf-8 -t gbk run-utf8.bat>run.bat',nil,5);
-  sleep(500);
+  sleep(sleeptime);
   ShellExecute(0,'open', 'cmd','/k run.bat',nil,5);
   ListBox1.Clear;
 end;
@@ -190,6 +192,7 @@ begin
   settings.WriteBool('advanced','x_on',x_on);
       settings.WriteString('advanced','p',form3.edit2.Text);
   settings.WriteBool('advanced','p_on',p_on);
+  settings.WriteInteger('advanced_gui','sleeptime',sleeptime);
   settings.free;
 end;
 

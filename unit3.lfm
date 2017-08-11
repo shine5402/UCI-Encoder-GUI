@@ -1,11 +1,11 @@
 object Form3: TForm3
-  Left = 426
-  Height = 165
-  Top = 248
+  Left = 459
+  Height = 223
+  Top = 389
   Width = 597
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = '高级设置'
-  ClientHeight = 165
+  ClientHeight = 223
   ClientWidth = 597
   Constraints.MinHeight = 150
   Constraints.MinWidth = 597
@@ -14,12 +14,12 @@ object Form3: TForm3
   object Label1: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    Left = 30
+    Left = 20
     Height = 17
-    Top = 30
+    Top = 15
     Width = 36
-    BorderSpacing.Left = 30
-    BorderSpacing.Top = 30
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 15
     Caption = '注意：'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clRed
@@ -36,9 +36,9 @@ object Form3: TForm3
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 66
+    Left = 56
     Height = 17
-    Top = 30
+    Top = 15
     Width = 492
     Caption = '如果不知道自己在干什么，千万不要贸然改动下面的设置。这有可能导致程序无法正常运作。'
     ParentColor = False
@@ -50,7 +50,7 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 218
     Height = 26
-    Top = 129
+    Top = 187
     Width = 160
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 10
@@ -86,87 +86,158 @@ object Form3: TForm3
       TabOrder = 1
     end
   end
-  object Label3: TLabel
+  object PageControl1: TPageControl
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Label1
     AnchorSideTop.Side = asrBottom
-    Left = 30
-    Height = 17
-    Top = 62
-    Width = 179
-    BorderSpacing.Left = 30
-    BorderSpacing.Top = 15
-    Caption = '自定义调用的编译器命令行 (-x)：'
-    ParentColor = False
-  end
-  object Edit1: TEdit
-    AnchorSideLeft.Control = Label3
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Label3
-    AnchorSideTop.Side = asrCenter
-    AnchorSideRight.Control = HelpButton1
-    Left = 209
-    Height = 25
-    Top = 58
-    Width = 334
-    Anchors = [akTop, akLeft, akRight]
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Panel1
+    Left = 15
+    Height = 145
+    Top = 37
+    Width = 567
+    ActivePage = TabSheet1
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 15
+    BorderSpacing.Top = 5
+    BorderSpacing.Right = 15
+    BorderSpacing.Bottom = 5
+    TabIndex = 0
     TabOrder = 1
-    TextHint = '留空即为不使用该参数。'
-  end
-  object Label5: TLabel
-    AnchorSideLeft.Control = Label3
-    AnchorSideTop.Control = Edit1
-    AnchorSideTop.Side = asrBottom
-    Left = 30
-    Height = 17
-    Top = 93
-    Width = 205
-    BorderSpacing.Top = 10
-    Caption = '自定义调用的编译器程序文件名 (-p)：'
-    ParentColor = False
-  end
-  object Edit2: TEdit
-    AnchorSideLeft.Control = Label5
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = Label5
-    AnchorSideTop.Side = asrCenter
-    AnchorSideRight.Control = HelpButton2
-    Left = 235
-    Height = 25
-    Top = 89
-    Width = 308
-    Anchors = [akTop, akLeft, akRight]
-    TabOrder = 2
-    TextHint = '留空即为不使用该参数。'
-  end
-  object HelpButton1: TButton
-    AnchorSideLeft.Control = Edit1
-    AnchorSideTop.Control = Edit1
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 543
-    Height = 25
-    Top = 58
-    Width = 24
-    Anchors = [akTop, akRight]
-    BorderSpacing.Right = 30
-    Caption = '?'
-    OnClick = HelpButton1Click
-    TabOrder = 3
-  end
-  object HelpButton2: TButton
-    AnchorSideLeft.Control = Edit1
-    AnchorSideTop.Control = Edit2
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 543
-    Height = 25
-    Top = 89
-    Width = 24
-    Anchors = [akTop, akRight]
-    BorderSpacing.Right = 30
-    Caption = '?'
-    OnClick = HelpButton2Click
-    TabOrder = 4
+    object TabSheet1: TTabSheet
+      Caption = 'UCI Encoder 设置'
+      ClientHeight = 115
+      ClientWidth = 559
+      object Label3: TLabel
+        AnchorSideLeft.Control = TabSheet1
+        AnchorSideTop.Control = TabSheet1
+        Left = 10
+        Height = 17
+        Top = 10
+        Width = 179
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        Caption = '自定义调用的编译器命令行 (-x)：'
+        ParentColor = False
+      end
+      object Edit1: TEdit
+        AnchorSideLeft.Control = Label3
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = Label3
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = HelpButton1
+        Left = 189
+        Height = 25
+        Top = 6
+        Width = 336
+        Anchors = [akTop, akLeft, akRight]
+        TabOrder = 0
+        TextHint = '留空即为不使用该参数。'
+      end
+      object Label5: TLabel
+        AnchorSideLeft.Control = Label3
+        AnchorSideTop.Control = Edit1
+        AnchorSideTop.Side = asrBottom
+        Left = 10
+        Height = 17
+        Top = 41
+        Width = 205
+        BorderSpacing.Top = 10
+        Caption = '自定义调用的编译器程序文件名 (-p)：'
+        ParentColor = False
+      end
+      object Edit2: TEdit
+        AnchorSideLeft.Control = Label5
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = Label5
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = HelpButton2
+        Left = 215
+        Height = 25
+        Top = 37
+        Width = 310
+        Anchors = [akTop, akLeft, akRight]
+        TabOrder = 1
+        TextHint = '留空即为不使用该参数。'
+      end
+      object HelpButton1: TButton
+        AnchorSideLeft.Control = Edit1
+        AnchorSideTop.Control = Edit1
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        Left = 525
+        Height = 25
+        Top = 6
+        Width = 24
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 10
+        Caption = '?'
+        OnClick = HelpButton1Click
+        TabOrder = 2
+      end
+      object HelpButton2: TButton
+        AnchorSideLeft.Control = Edit1
+        AnchorSideTop.Control = Edit2
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        Left = 525
+        Height = 25
+        Top = 37
+        Width = 24
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 10
+        Caption = '?'
+        OnClick = HelpButton2Click
+        TabOrder = 3
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'GUI 设置'
+      ClientHeight = 115
+      ClientWidth = 559
+      object Label4: TLabel
+        AnchorSideLeft.Control = TabSheet2
+        AnchorSideTop.Control = TabSheet2
+        Left = 10
+        Height = 17
+        Top = 10
+        Width = 173
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
+        Caption = '运行iconv.exe之后的等待时间：'
+        ParentColor = False
+      end
+      object Edit3: TEdit
+        AnchorSideLeft.Control = Label4
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = Label4
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = HelpButton3
+        Left = 183
+        Height = 25
+        Top = 6
+        Width = 342
+        Anchors = [akTop, akLeft, akRight]
+        NumbersOnly = True
+        TabOrder = 0
+        TextHint = '默认为500。单位：毫秒。'
+      end
+      object HelpButton3: TButton
+        AnchorSideLeft.Control = Edit3
+        AnchorSideTop.Control = Edit3
+        AnchorSideRight.Control = TabSheet2
+        AnchorSideRight.Side = asrBottom
+        Left = 525
+        Height = 25
+        Top = 6
+        Width = 24
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 10
+        Caption = '?'
+        OnClick = HelpButton3Click
+        TabOrder = 1
+      end
+    end
   end
 end

@@ -1,11 +1,11 @@
 object Form2: TForm2
-  Left = 502
-  Height = 379
-  Top = 261
-  Width = 782
+  Left = 476
+  Height = 363
+  Top = 240
+  Width = 801
   Caption = '关于'
-  ClientHeight = 379
-  ClientWidth = 782
+  ClientHeight = 363
+  ClientWidth = 801
   Constraints.MinHeight = 307
   OnClose = FormClose
   OnCreate = FormCreate
@@ -311,9 +311,9 @@ object Form2: TForm2
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 10
-    Height = 279
+    Height = 263
     Top = 90
-    Width = 762
+    Width = 781
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 10
     BorderSpacing.Top = 90
@@ -337,6 +337,7 @@ object Form2: TForm2
     )
     OnChange = Memo1Change
     ReadOnly = True
+    ScrollBars = ssAutoBoth
     TabOrder = 0
   end
   object Image1: TImage
@@ -654,7 +655,7 @@ object Form2: TForm2
     Height = 17
     Top = 50
     Width = 30
-    Caption = 'v1.30'
+    Caption = 'v1.40'
     ParentColor = False
   end
   object Label3: TLabel
@@ -667,5 +668,34 @@ object Form2: TForm2
     Width = 233
     Caption = 'Written by shine_5402. Thanks to dwing.'
     ParentColor = False
+  end
+  object Button1: TButton
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 716
+    Height = 25
+    Top = 15
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 15
+    BorderSpacing.Right = 10
+    Caption = '许可'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Button2: TButton
+    AnchorSideLeft.Control = Button1
+    AnchorSideTop.Control = Button1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Memo1
+    Left = 716
+    Height = 25
+    Top = 55
+    Width = 75
+    BorderSpacing.Top = 15
+    Caption = 'GitHub'
+    OnClick = Button2Click
+    TabOrder = 2
   end
 end
