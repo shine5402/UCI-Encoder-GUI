@@ -654,8 +654,8 @@ object Form2: TForm2
     Left = 85
     Height = 17
     Top = 50
-    Width = 30
-    Caption = 'v1.51'
+    Width = 33
+    Caption = 'v1.5.2'
     ParentColor = False
   end
   object Label3: TLabel
