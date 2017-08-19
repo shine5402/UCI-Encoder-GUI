@@ -134,7 +134,7 @@ if x265radio.Checked then hevc:=' -hevc' else hevc:='';//处理单选框（x264/
 for i:= 0 to Listbox1.Items.Count-1 do begin
     progress:=i/Listbox1.Items.Count;
     percent:=trunc(progress*100);
-      batch.Add('title '+inttostr(percent)+'%% '+inttostr(i+1)+'^/'+inttostr(Listbox1.Items.Count+1)+' UCI Encoder 批处理正在运行……');
+      batch.Add('title '+inttostr(percent)+'%% '+inttostr(i+1)+'^/'+inttostr(Listbox1.Items.Count)+' UCI Encoder 批处理正在运行……');
       for j:= length(Listbox1.Items[i]) downto 1 do if Listbox1.Items[i][j]<>'.'then s:=Listbox1.Items[i][j]+s else break;
       if not((s='bmp') or (s='BMP') or (s='tga') or (s='TGA') or (s='png') or (s='PNG') or (s='jpg') or (s='JPG') or (s='jpeg') or (s='JPEG') or (s='gif') or (s='GIF') or (s='tif') or (s='TIF') or (s='TIFF') or (s='tiff') or (s='pcx') or (s='PCX') or (s='jp2') or (s='JP2') or (s='jpc') or (s='JPC')) then begin
         batch.Add('echo 发现无法转换的文件 '+ListBox1.Items[i]);
